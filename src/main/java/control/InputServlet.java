@@ -29,17 +29,18 @@ public class InputServlet extends jakarta.servlet.http.HttpServlet {
 		String nameStr = "【名前】" + request.getParameter("name");
 		String passwordStr = "【パスワード】" + request.getParameter("password");
 		String genderStr = "【性別】" + request.getParameter("gender");
-		String[] foodArray = request.getParameterValues("language");
-		String foodStr = "【得意言語】";
-		if (foodArray != null) {
-			for (String food : foodArray) {
-				foodStr += (food + "　");
+		String[] languageArray = request.getParameterValues("language");
+		String languageStr = "【得意言語】";
+		if (languageArray != null) {
+			for (String language : languageArray) {
+				languageStr += (language + "　");
 			}
 		} else {
-			foodStr += "(未選択)";
+			languageStr += "(未選択)";
 		}
 		String hobbyStr = "【趣味】" + request.getParameter("hobby");
-
+		
+		//↓が画面に出力される
 		// レスポンスのコンテンツタイプおよびエンコーディング方式を指定
 		response.setContentType("text/html; charset=UTF-8");
 
@@ -59,8 +60,9 @@ public class InputServlet extends jakarta.servlet.http.HttpServlet {
 		out.println("    " + nameStr + "<br><br>                     ");
 		out.println("    " + passwordStr + "<br><br>                 ");
 		out.println("    " + genderStr + "<br><br>                   ");
-		out.println("    " + foodStr + "<br><br>                     ");
+		out.println("    " + languageStr + "<br><br>                     ");
 		out.println("    " + hobbyStr + "<br><br>                    ");
+		//input.htmlに戻るためのボタン
 		out.println("<br><a href=\"input.html\">入力フォームへ</a>     ");
 		out.println("</body>                                         ");
 		out.println("</html>                                         ");
