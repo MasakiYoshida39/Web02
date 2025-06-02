@@ -29,8 +29,8 @@ public class InputServlet extends jakarta.servlet.http.HttpServlet {
 		String nameStr = "【名前】" + request.getParameter("name");
 		String passwordStr = "【パスワード】" + request.getParameter("password");
 		String genderStr = "【性別】" + request.getParameter("gender");
-		String[] foodArray = request.getParameterValues("food");
-		String foodStr = "【好物】";
+		String[] foodArray = request.getParameterValues("language");
+		String foodStr = "【得意言語】";
 		if (foodArray != null) {
 			for (String food : foodArray) {
 				foodStr += (food + "　");
