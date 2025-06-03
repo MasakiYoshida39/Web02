@@ -1,4 +1,4 @@
-参考https://www.youtube.com/watch?v=_oZ6xw7pLEE、https://www.youtube.com/watch?v=AOy0Bf506NU
+参考https://www.youtube.com/watch?v=_oZ6xw7pLEE、https://www.youtube.com/watch?v=AOy0Bf506NU、https://www.youtube.com/watch?v=GYV65aekcMI
 見本と違う理由を特定する
 途中、サーブレットまたはtomcatの破損の原因特定
 現在はeclipseの再インストールで対応
