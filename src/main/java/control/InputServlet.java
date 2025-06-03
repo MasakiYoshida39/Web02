@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * 入力を受け付けるサーブレット
- * @author M.Takahashi
+ * 
  */
 //ここが違う　@WebServlet("/input-servlet")
 @jakarta.servlet.annotation.WebServlet("/input-servlet")

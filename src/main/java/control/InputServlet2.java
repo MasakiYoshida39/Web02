@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * 入力を受け付けるサーブレット
- * @author M.Takahashi
+ * 
  */
 @jakarta.servlet.annotation.WebServlet("/input-servlet2")
 public class InputServlet2 extends HttpServlet {
@@ -27,8 +27,9 @@ public class InputServlet2 extends HttpServlet {
 		String nameStr = "【名前】" + request.getParameter("name");
 		String passwordStr = "【パスワード】" + request.getParameter("password");
 		String genderStr = "【性別】" + request.getParameter("gender");
+		//getParameterValuesは複数受け取る
 		String[] languageArray = request.getParameterValues("food");
-		String languageStr = "【好物】";
+		String languageStr = "【言語】";
 		if (languageArray != null) {
 			for (String food : languageArray) {
 				languageStr += (food + "　");
@@ -36,13 +37,14 @@ public class InputServlet2 extends HttpServlet {
 		} else {
 			languageStr += "(未選択)";
 		}
+		//getParameterは１つ受け取る
 		String hobbyStr = "【趣味】" + request.getParameter("hobby");
 
 		// リクエストスコープへのデータ格納
 		request.setAttribute("name", nameStr);
 		request.setAttribute("password", passwordStr);
 		request.setAttribute("gender", genderStr);
-		request.setAttribute("food", languageStr);
+		request.setAttribute("language", languageStr);
 		request.setAttribute("hobby", hobbyStr);
 		
 		// 転送オブジェクトを取得

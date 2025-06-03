@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * 出力サーブレット
- * @author M.Takahashi
+ * 
  */
 @jakarta.servlet.annotation.WebServlet("/output-servlet")
 public class OutputServlet extends jakarta.servlet.http.HttpServlet {
