@@ -11,6 +11,7 @@
 	<h2>入力内容</h2>
 
 	<%
+	    //警告文を消すため
 		@SuppressWarnings("unchecked")
 		List<String> infoList = (List<String>) request.getAttribute("infoList");
 		for (String info : infoList) {

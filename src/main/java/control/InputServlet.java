@@ -11,14 +11,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
-
+//URL指定
 @jakarta.servlet.annotation.WebServlet("/input-servlet")
 public class InputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストのエンコーディング方式を指定
 		request.setCharacterEncoding("UTF-8");
@@ -28,6 +26,8 @@ public class InputServlet extends HttpServlet {
 		String passwordStr = "【パスワード】" + request.getParameter("password");
 		String genderStr = "【性別】" + request.getParameter("gender");
 		String[] languageArray = request.getParameterValues("language");
+		
+		
 		String languageStr = "【得意言語】";
 		if (languageArray != null) {
 			for (String language : languageArray) {
@@ -36,6 +36,8 @@ public class InputServlet extends HttpServlet {
 		} else {
 			languageStr += "(未選択)";
 		}
+		
+		
 		String hobbyStr = "【趣味】" + request.getParameter("hobby");
 
 		// リストに格納
