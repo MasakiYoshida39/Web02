@@ -1,21 +1,19 @@
 package control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * 入力を受け付けるサーブレット
- * 
- */
-//ここが違う　@WebServlet("/input-servlet")
+
+
 @jakarta.servlet.annotation.WebServlet("/input-servlet")
-//ここも違う　public class InputServlet extends HttpServlet {
-public class InputServlet extends jakarta.servlet.http.HttpServlet {
+public class InputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -39,33 +37,23 @@ public class InputServlet extends jakarta.servlet.http.HttpServlet {
 			languageStr += "(未選択)";
 		}
 		String hobbyStr = "【趣味】" + request.getParameter("hobby");
+
+		// リストに格納
+		List<String> infoList = new ArrayList<String>();
+		infoList.add(nameStr);
+		infoList.add(passwordStr);
+		infoList.add(genderStr);
+		infoList.add(languageStr);
+		infoList.add(hobbyStr);
 		
-		//↓が画面に出力される
-		// レスポンスのコンテンツタイプおよびエンコーディング方式を指定
-		response.setContentType("text/html; charset=UTF-8");
+		// リクエストスコープへのデータ格納（リストデータの格納）
+		request.setAttribute("infoList", infoList);
+		
+		// 転送オブジェクトを取得
+		RequestDispatcher dispatcher = request.getRequestDispatcher("output.jsp");
 
-		// レスポンス書き出し用オブジェクトの取得
-		PrintWriter out = response.getWriter();
-
-		//レスポンスの書き出し
-		out.println("<!DOCTYPE html>                                 ");
-		out.println("<html>                                          ");
-		out.println("<head>                                          ");
-		out.println("<meta charset=\"UTF-8\">                        ");
-		out.println("<title>入力内容</title>                         ");
-		out.println("<link rel=\"stylesheet\" href=\"style.css\">    ");
-		out.println("</head>                                         ");
-		out.println("<body>                                          ");
-		out.println("    <h2>入力内容</h2>                           ");
-		out.println("    " + nameStr + "<br><br>                     ");
-		out.println("    " + passwordStr + "<br><br>                 ");
-		out.println("    " + genderStr + "<br><br>                   ");
-		out.println("    " + languageStr + "<br><br>                     ");
-		out.println("    " + hobbyStr + "<br><br>                    ");
-		//input.htmlに戻るためのボタン
-		out.println("<br><a href=\"input.html\">入力フォームへ</a>     ");
-		out.println("</body>                                         ");
-		out.println("</html>                                         ");
+		// 転送
+		dispatcher.forward(request, response);
 	}
 
 }

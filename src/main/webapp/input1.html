@@ -8,21 +8,25 @@
 <body>
 
 	<h2>入力フォーム</h2>
-
-	<form action="input-servlet" method="POST">
+	<!-- URLパターン パスワードだからポPOSTを使用-->
+	<form action="input-servlet2" method="POST">
+		<!-- requiredは必ず入力-->
 		【お名前】<br>
 		<input type="text" name="name" required><br><br>
 		【パスワード】<br>
+		<!-- passwordにすれば伏せ字になる-->
 		<input type="password" name="password" required><br><br>
 		【性別】<br>
 		<input type="radio" name="gender" value="男">男　
 		<input type="radio" name="gender" value="女">女　
+		<!-- checked　初期状態で使用する-->
 		<input type="radio" name="gender" value="その他" checked>その他　<br><br>
 		【得意言語】<br>
-				<input type="checkbox" name="language" value="Java">Java　
-				<input type="checkbox" name="language" value="Python">Python　
-				<input type="checkbox" name="language" value="PHP">PHP　<br><br>
+		<input type="checkbox" name="language" value="Java">Java　
+		<input type="checkbox" name="language" value="Python">Python　
+		<input type="checkbox" name="language" value="PHP">PHP　<br><br>
 		【趣味】<br>
+		<!-- selected　　初期状態で使用する-->
 		<select name="hobby">
 			<option value="映画">映画</option>
 			<option value="スポーツ">スポーツ</option>
